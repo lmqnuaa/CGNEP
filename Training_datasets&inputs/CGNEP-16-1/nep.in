@@ -1,0 +1,10 @@
+type        	1 C
+cutoff		20 16
+zbl		2.5
+basis_size	12 12
+neuron		150
+lambda_e	0
+lambda_f	1
+lambda_v	0
+batch		1000
+generation	300000

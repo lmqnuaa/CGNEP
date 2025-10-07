@@ -1,0 +1,22 @@
+potential	./CGNEP-4-1_Tersoff+LJ.txt
+minimize	sd 1e-6 10000
+
+velocity	300
+time_step	5
+
+ensemble 	npt_scr 300 300 500 0 0 0 1000 1000 100 1000
+fix		0
+dump_exyz	1000
+dump_thermo	1000
+run		100000
+
+ensemble	nvt_nhc 300 300 500
+fix		0
+dump_exyz	1000
+dump_thermo	1000
+run		100000
+
+fix		0
+dump_position   20 group 1 1
+
+run		200000

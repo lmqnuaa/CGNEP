@@ -1,0 +1,28 @@
+potential	./CGNEP-64-1.txt
+#minimize	sd 1e-6 10000
+
+velocity	300
+time_step	20
+
+ensemble 	npt_scr 300 300 2000 -1 -1 0 100 100 100 1000
+fix		0
+dump_exyz	1000
+dump_thermo	1000
+run		6000
+
+ensemble 	npt_scr 300 300 2000 0 0 0 1000 1000 100 1000
+fix		0
+dump_exyz	10000
+dump_thermo	1000
+run		60000
+
+ensemble	nvt_nhc 300 300 2000
+fix		0
+dump_exyz	10000
+dump_thermo	1000
+run		60000
+
+fix		0
+dump_position   120 group 1 1
+
+run		1200000

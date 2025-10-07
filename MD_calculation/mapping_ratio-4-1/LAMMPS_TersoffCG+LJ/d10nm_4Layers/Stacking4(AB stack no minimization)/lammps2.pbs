@@ -1,0 +1,10 @@
+#!/bin/bash
+#PBS -N lammps
+#PBS -l nodes=1:ppn=24
+#PBS -q new2
+#PBS -j oe
+
+
+cd $PBS_O_WORKDIR
+nproc=`cat $PBS_NODEFILE|wc -l`
+mpirun -hostfile $PBS_NODEFILE -np $nproc /public/software/lammps/lmp_openmpi <in.graphene
